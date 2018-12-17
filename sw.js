@@ -1,4 +1,4 @@
-var verison = '1.0.1';
+var VERSION = 'v1';
 
 // sw.js
 self.addEventListener('install', function (event) {
@@ -6,7 +6,7 @@ self.addEventListener('install', function (event) {
   event.waitUntil(
 
     // 创建一个缓存
-    caches.open('v1').then(function (cache) {
+    caches.open(VERSION).then(function (cache) {
       
       // 添加要缓存的资源
       return cache.addAll([
@@ -30,7 +30,7 @@ this.addEventListener('fetch', function (event) {
   event.respondWith(
     caches.match(event.request).then(function () {
       return fetch(event.request).then(function (response) {
-        return caches.open('v1').then(function (cache) {
+        return caches.open(VERSION).then(function (cache) {
           self.registration.showNotification(`缓存了资源`);
           cache.put(event.request, response.clone());
           return response;
