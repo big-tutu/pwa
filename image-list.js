@@ -1,4 +1,4 @@
-var Path = 'gallery/';
+var Path = './gallery/';
 
 var Gallery = {
   'images': [
