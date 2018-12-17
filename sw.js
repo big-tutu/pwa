@@ -26,26 +26,41 @@ self.addEventListener('install', function (event) {
 
 
 // sw.js 管理请求
-this.addEventListener('fetch', function (event) {
-  event.respondWith(
-    caches.match(event.request).then(function () {
-      console.log('sdf', event.request);
+// this.addEventListener('fetch', function (event) {
+//   event.respondWith(
+//     caches.match(event.request).then(function () {
+//       console.log('sdf', event.request);
       
-      return fetch(event.request).then(function (response) {
-        return caches.open(VERSION).then(function (cache) {
-          console.log('cache', cache);
+//       return fetch(event.request).then(function (response) {
+//         return caches.open(VERSION).then(function (cache) {
+//           console.log('cache', cache);
           
-          self.registration.showNotification(`缓存了资源`);
-          cache.put(event.request, response.clone());
-          return response;
-        });
-      });
-    }).catch(function (err) {
-      console.log(err);
+//           self.registration.showNotification(`缓存了资源`);
+//           cache.put(event.request, response.clone());
+//           return response;
+//         });
+//       });
+//     }).catch(function (err) {
+//       console.log(err);
       
-      return caches.match('/pwa/gallery/myLittleVader.jpg');
-    })
-  );
+//       return caches.match('/pwa/gallery/myLittleVader.jpg');
+//     })
+//   );
+// });
+
+// 捕获请求并返回缓存数据
+self.addEventListener('fetch', function (event) {
+  event.respondWith(caches.match(event.request).catch(function () {
+    return fetch(event.request);
+  }).then(function (response) {
+    caches.open(VERSION).then(function (cache) {
+      self.registration.showNotification(`缓存了资源`);
+      cache.put(event.request, response);
+    });
+    return response.clone();
+  }).catch(function () {
+    return caches.match('./static/mm1.jpg');
+  }));
 });
 
 
