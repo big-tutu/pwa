@@ -1,0 +1,23 @@
+
+{
+  "name": "Progressive Web App",
+  "short_name": "PWA",
+  "icons": [
+    {
+      "src": "star-wars-logo.jpg",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "star-wars-logo.jpg",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "scope": "/demo1/",
+  "start_url": "/demo1/index.html",
+  "display": "standalone",
+  "orientation": "landscape",
+  "theme_color": "#000",
+  "background_color": "#fff"
+}
