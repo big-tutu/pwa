@@ -29,6 +29,8 @@ self.addEventListener('install', function (event) {
 this.addEventListener('fetch', function (event) {
   event.respondWith(
     caches.match(event.request).then(function () {
+      console.log('sdf', event.request);
+      
       return fetch(event.request).then(function (response) {
         return caches.open(VERSION).then(function (cache) {
           self.registration.showNotification(`缓存了资源`);
