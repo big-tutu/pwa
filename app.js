@@ -1,7 +1,7 @@
 
 
 function registerServiceWorker() {
-  return navigator.serviceWorker.register('/pwa/sw.js', {scope: Path +  '/pwa/'})
+  return navigator.serviceWorker.register('/pwa/sw.js', {scope: '/pwa/'})
     .then(registration => {
       console.log('Service worker successfully registered.');
       return registration;
