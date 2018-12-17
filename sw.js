@@ -33,6 +33,8 @@ this.addEventListener('fetch', function (event) {
       
       return fetch(event.request).then(function (response) {
         return caches.open(VERSION).then(function (cache) {
+          console.log('cache', cache);
+          
           self.registration.showNotification(`缓存了资源`);
           cache.put(event.request, response.clone());
           return response;
