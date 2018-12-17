@@ -1,4 +1,4 @@
-var VERSION = 'v2';
+var VERSION = 'v1';
 
 // sw.js
 self.addEventListener('install', function (event) {
