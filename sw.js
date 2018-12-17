@@ -59,7 +59,7 @@ self.addEventListener('fetch', function (event) {
     });
     return response.clone();
   }).catch(function () {
-    return caches.match('./static/mm1.jpg');
+    return caches.match('/pwa/gallery/myLittleVader.jpg');
   }));
 });
 
