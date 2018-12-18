@@ -1,4 +1,4 @@
-var VERSION = 'v1';
+var VERSION = 'v3';
 
 // sw.js
 self.addEventListener('install', function (event) {
@@ -10,15 +10,15 @@ self.addEventListener('install', function (event) {
       
       // 添加要缓存的资源
       return cache.addAll([
-        '/pwa/',
-        '/pwa/index.html',
-        '/pwa/style.css',
-        '/pwa/app.js',
-        '/pwa/image-list.js',
-        '/pwa/star-wars-logo.jpg',
-        '/pwa/gallery/bountyHunters.jpg',
-        '/pwa/gallery/myLittleVader.jpg',
-        '/pwa/gallery/snowTroopers.jpg'
+        '/',
+        '/index.html',
+        '/style.css',
+        '/app.js',
+        '/image-list.js',
+        '/star-wars-logo.jpg',
+        '/gallery/bountyHunters.jpg',
+        '/gallery/myLittleVader.jpg',
+        '/gallery/snowTroopers.jpg'
       ]);
     })
   );
@@ -56,7 +56,7 @@ this.addEventListener('fetch', function (event) {
         return httpRes;
       });
     }).catch(function () {
-      return caches.match('/pwa/gallery/myLittleVader.jpg');
+      return caches.match('/gallery/myLittleVader.jpg');
     })
    );
 });
@@ -72,7 +72,7 @@ this.addEventListener('fetch', function (event) {
 //     });
 //     return response.clone();
 //   }).catch(function () {
-//     return caches.match('/pwa/gallery/myLittleVader.jpg');
+//     return caches.match('/gallery/myLittleVader.jpg');
 //   }));
 // });
 

@@ -4,18 +4,18 @@
   "short_name": "PWA",
   "icons": [
     {
-      "src": "/pwa/star-wars-logo.jpg",
+      "src": "/star-wars-logo.jpg",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "/pwa/star-wars-logo.jpg",
+      "src": "/star-wars-logo.jpg",
       "sizes": "144x144",
       "type": "image/png"
     }
   ],
-  "scope": "/pwa/",
-  "start_url": "/pwa/index.html",
+  "scope": "/",
+  "start_url": "/index.html",
   "display": "standalone",
   "orientation": "landscape",
   "theme_color": "#000",
