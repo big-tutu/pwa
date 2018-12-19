@@ -18,7 +18,8 @@ self.addEventListener('install', function (event) {
         '/pwa/star-wars-logo.jpg',
         '/pwa/gallery/bountyHunters.jpg',
         '/pwa/gallery/myLittleVader.jpg',
-        '/pwa/gallery/snowTroopers.jpg'
+        '/pwa/gallery/snowTroopers.jpg',
+        '/pwa/gallery/test.png'
       ]);
     })
   );
