@@ -1,8 +1,11 @@
-var VERSION = 'v3';
+var VERSION = 'v1';
 
 // sw.js
 self.addEventListener('install', function (event) {
+
   // event.waitUntil(self.skipWaiting());
+  // ...
+
   event.waitUntil(
 
     // 创建一个缓存
@@ -18,7 +21,8 @@ self.addEventListener('install', function (event) {
         '/star-wars-logo.jpg',
         '/gallery/bountyHunters.jpg',
         '/gallery/myLittleVader.jpg',
-        '/gallery/snowTroopers.jpg'
+        '/gallery/snowTroopers.jpg',
+        '/gallery/test.png'
       ]);
     })
   );
@@ -78,12 +82,14 @@ this.addEventListener('fetch', function (event) {
 
 
 self.addEventListener('activate', function (event) {
+
+  // 需要在install中配合 event.waitUntil(self.skipWaiting());
+  // event.waitUntil(self.clients.claim());
+
   // sw.js 向用户发送通知
   var cacheWhitelist = [];
   self.registration.showNotification('进入激活状态！');
 
-  // 需要在install中配合 event.waitUntil(self.skipWaiting());
-  event.waitUntil(self.clients.claim());
   event.waitUntil(
     caches.keys().then(function (keyList) {
       return Promise.all(keyList.map(function (key) {
